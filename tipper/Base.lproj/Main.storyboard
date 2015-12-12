@@ -41,11 +41,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="z2u-Bj-JKY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="z2u-Bj-JKY">
                                 <rect key="frame" x="178" y="154" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="83M-we-h04"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" id="8gr-n1-vpM">
                                 <rect key="frame" x="28" y="282" width="267" height="6"/>
@@ -78,6 +81,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lZV-ai-3Nf" appends="YES" id="9cO-HS-a4q"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tipper" id="lxf-6b-VZC">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="tNy-KO-Zdw">
@@ -95,6 +102,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lZV-ai-3Nf">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="guI-Kw-ugD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="800" y="234"/>
         </scene>

@@ -25,6 +25,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        tipLabel.text = "$0.00"
+        totalLabel.text = "$0.00"
+        
         let tipValue = defaults.integerForKey("tipIndex")
         //print(defaults.integerForKey("tipIndex"))
         tipController.selectedSegmentIndex = tipValue
@@ -72,6 +75,17 @@ class ViewController: UIViewController {
         print("view did disappear")
     }
     
+    @IBAction func onEditingChanged(sender: AnyObject) {
+        let billAmount = NSString(string: tipField.text!).doubleValue
+        let tip = billAmount * 0.2
+        let total = tip + billAmount
+        
+        tipLabel.text = String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", total)
+    }
 
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
 }
 
