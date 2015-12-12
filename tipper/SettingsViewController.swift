@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onTap(sender: AnyObject) {
-        print(tipControl.selectedSegmentIndex)
+        let tipIndex = tipControl.selectedSegmentIndex
+        defaults.setInteger(tipIndex, forKey: "tipIndex")
+        //print(tipIndex)
+        defaults.synchronize()
     }
 
     /*
