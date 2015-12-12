@@ -24,11 +24,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let intValue = defaults.integerForKey("tipIndex")
-        //print(intValue)
+        
+        let tipValue = defaults.integerForKey("tipIndex")
         //print(defaults.integerForKey("tipIndex"))
-        tipController.selectedSegmentIndex = intValue
+        tipController.selectedSegmentIndex = tipValue
+        if(defaults.objectForKey("lastlogin") == nil)
+        {
+            defaults.setObject(NSDate(), forKey: "lastlogin")
+        }
 
+        
+        let start = defaults.objectForKey("lastlogin")
+        let end = NSDate();
+        
+        var timeInterval: Double = start!.timeIntervalSinceDate(end);
+        timeInterval = timeInterval * -1.0;
+        
+        if(timeInterval > 750)
+        {
+            //do something
+        }
+        
+        defaults.setObject(NSDate(), forKey: "lastlogin")
     }
 
     override func didReceiveMemoryWarning() {
