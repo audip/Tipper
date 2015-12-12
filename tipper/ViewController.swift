@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipField: UITextField!
     
+    @IBOutlet weak var PLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var tipController: UISegmentedControl!
@@ -86,6 +87,7 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
     }
 
     @IBAction func onTap(sender: AnyObject) {
