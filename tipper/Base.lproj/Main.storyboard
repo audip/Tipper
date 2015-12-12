@@ -45,7 +45,7 @@
                                 <rect key="frame" x="174" y="103" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="83M-we-h04"/>
                                 </connections>
@@ -76,68 +76,75 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="rxS-Nx-ynY">
-                                <rect key="frame" x="28" y="358" width="24" height="24"/>
+                                <rect key="frame" x="24" y="394" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="2Qg-7Y-a7o">
-                                <rect key="frame" x="52" y="396" width="24" height="24"/>
+                                <rect key="frame" x="48" y="432" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="dtG-eq-WI0">
-                                <rect key="frame" x="28" y="396" width="24" height="24"/>
+                                <rect key="frame" x="24" y="432" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="DCI-x5-ys7">
-                                <rect key="frame" x="28" y="437" width="24" height="24"/>
+                                <rect key="frame" x="24" y="473" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="r3P-Wq-aHD">
-                                <rect key="frame" x="52" y="437" width="24" height="24"/>
+                                <rect key="frame" x="48" y="473" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="VhV-IL-gH9">
-                                <rect key="frame" x="75" y="437" width="24" height="24"/>
+                                <rect key="frame" x="71" y="473" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="blp-gR-XWk">
-                                <rect key="frame" x="52" y="478" width="24" height="24"/>
+                                <rect key="frame" x="48" y="514" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="Yn3-o0-KGG">
-                                <rect key="frame" x="28" y="478" width="24" height="24"/>
+                                <rect key="frame" x="24" y="514" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="c9p-EG-65E">
-                                <rect key="frame" x="101" y="478" width="24" height="24"/>
+                                <rect key="frame" x="97" y="514" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="9Wf-1g-vDc">
-                                <rect key="frame" x="75" y="478" width="24" height="24"/>
+                                <rect key="frame" x="71" y="514" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dUc-IO-6Wn">
-                                <rect key="frame" x="251" y="359" width="45" height="21"/>
+                                <rect key="frame" x="184" y="395" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uTL-bx-fsh">
-                                <rect key="frame" x="251" y="397" width="45" height="21"/>
+                                <rect key="frame" x="184" y="433" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QJi-wf-4Ek">
-                                <rect key="frame" x="251" y="438" width="45" height="21"/>
+                                <rect key="frame" x="191" y="474" width="101" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BP9-Bf-wOo">
-                                <rect key="frame" x="251" y="479" width="45" height="21"/>
+                                <rect key="frame" x="184" y="515" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip due per person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="32m-Tq-BOD">
+                                <rect key="frame" x="24" y="365" width="145" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -158,6 +165,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="P1label" destination="dUc-IO-6Wn" id="qRP-Sg-bL2"/>
+                        <outlet property="P2label" destination="uTL-bx-fsh" id="YBq-L6-SUi"/>
+                        <outlet property="P3label" destination="QJi-wf-4Ek" id="STQ-9v-WaB"/>
+                        <outlet property="P4label" destination="BP9-Bf-wOo" id="Zxx-mX-Qoh"/>
                         <outlet property="tipController" destination="iSd-Am-Wjo" id="Rsu-bn-hBQ"/>
                         <outlet property="tipField" destination="z2u-Bj-JKY" id="oac-Ka-Wcz"/>
                         <outlet property="tipLabel" destination="BzD-Xy-eEa" id="WaL-lD-oE6"/>

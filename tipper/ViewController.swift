@@ -13,15 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipField: UITextField!
-    
-    @IBOutlet weak var PLabel: UILabel!
+    @IBOutlet weak var P1label: UILabel!
+    @IBOutlet weak var P2label: UILabel!
+    @IBOutlet weak var P3label: UILabel!
+    @IBOutlet weak var P4label: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var tipController: UISegmentedControl!
     
     let defaults = NSUserDefaults.standardUserDefaults()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -88,6 +88,17 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         
+        let tipFor1 = tip
+        let tipFor2 = tip/2
+        let tipFor3 = tip/3
+        let tipFor4 = tip/4
+        
+        P1label.text = String(format: "$%.2f", tipFor1)
+        P2label.text = String(format: "$%.2f", tipFor2)
+        P3label.text = String(format: "$%.2f", tipFor3)
+        P4label.text = String(format: "$%.2f", tipFor4)
+
+
     }
 
     @IBAction func onTap(sender: AnyObject) {
