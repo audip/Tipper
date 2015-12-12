@@ -24,9 +24,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onTap(sender: AnyObject) {
-        let tipIndex = tipControl.selectedSegmentIndex
+        var tipIndex = 0
+        tipIndex = tipControl.selectedSegmentIndex
         defaults.setInteger(tipIndex, forKey: "tipIndex")
-        //print(tipIndex)
+        //print(defaults.integerForKey("tipIndex"))
         defaults.synchronize()
     }
 

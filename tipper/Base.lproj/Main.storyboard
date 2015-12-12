@@ -80,6 +80,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tipController" destination="iSd-Am-Wjo" id="Rsu-bn-hBQ"/>
                         <outlet property="tipField" destination="z2u-Bj-JKY" id="oac-Ka-Wcz"/>
                         <outlet property="tipLabel" destination="BzD-Xy-eEa" id="WaL-lD-oE6"/>
                         <outlet property="totalLabel" destination="iQZ-Br-5DP" id="ax1-dZ-SrW"/>
@@ -87,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="234"/>
+            <point key="canvasLocation" x="792" y="234"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ddm-tP-8aV">
