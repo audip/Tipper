@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     let defaults = NSUserDefaults.standardUserDefaults()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class SettingsViewController: UIViewController {
         defaults.synchronize()
     }
 
+   
     /*
     // MARK: - Navigation
 
