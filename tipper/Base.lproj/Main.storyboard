@@ -36,6 +36,13 @@
                                     <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kqP-ec-Pe4"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cJ-vv-gTK">
+                                <rect key="frame" x="29" y="212" width="114" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="rxS-Nx-ynY">
                                 <rect key="frame" x="24" y="393" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,6 +73,10 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="Yn3-o0-KGG">
                                 <rect key="frame" x="24" y="513" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="c9p-EG-65E">
+                                <rect key="frame" x="94" y="513" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="9Wf-1g-vDc">
@@ -100,10 +111,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" id="c9p-EG-65E">
-                                <rect key="frame" x="94" y="513" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z4Z-YD-xSf">
                                 <rect key="frame" x="29" y="346" width="15" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -113,13 +120,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzD-Xy-eEa">
                                 <rect key="frame" x="177" y="349" width="118" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cJ-vv-gTK">
-                                <rect key="frame" x="29" y="212" width="114" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,10 +140,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="IconP1" destination="rxS-Nx-ynY" id="1Dd-oJ-YuT"/>
+                        <outlet property="IconP10" destination="9Wf-1g-vDc" id="PIW-XY-C79"/>
+                        <outlet property="IconP2" destination="2Qg-7Y-a7o" id="D4D-cC-2zQ"/>
+                        <outlet property="IconP3" destination="dtG-eq-WI0" id="JAT-7P-DFh"/>
+                        <outlet property="IconP4" destination="DCI-x5-ys7" id="tQU-gd-c2o"/>
+                        <outlet property="IconP5" destination="r3P-Wq-aHD" id="DZf-fd-eOa"/>
+                        <outlet property="IconP6" destination="VhV-IL-gH9" id="yf8-K9-65j"/>
+                        <outlet property="IconP7" destination="blp-gR-XWk" id="suX-Sh-K3X"/>
+                        <outlet property="IconP8" destination="Yn3-o0-KGG" id="DIh-JE-DiX"/>
+                        <outlet property="IconP9" destination="c9p-EG-65E" id="4Kh-Zl-fLY"/>
                         <outlet property="P1label" destination="dUc-IO-6Wn" id="qRP-Sg-bL2"/>
                         <outlet property="P2label" destination="uTL-bx-fsh" id="YBq-L6-SUi"/>
                         <outlet property="P3label" destination="QJi-wf-4Ek" id="STQ-9v-WaB"/>
                         <outlet property="P4label" destination="BP9-Bf-wOo" id="Zxx-mX-Qoh"/>
+                        <outlet property="billLabel" destination="6cJ-vv-gTK" id="BDU-xm-zto"/>
+                        <outlet property="plusLabel" destination="Z4Z-YD-xSf" id="WM0-6o-m0v"/>
                         <outlet property="tipController" destination="iSd-Am-Wjo" id="Rsu-bn-hBQ"/>
                         <outlet property="tipField" destination="z2u-Bj-JKY" id="oac-Ka-Wcz"/>
                         <outlet property="tipLabel" destination="BzD-Xy-eEa" id="WaL-lD-oE6"/>
