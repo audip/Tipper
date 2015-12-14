@@ -3,9 +3,7 @@
 Tipper is a tip calculator application for iOS.
 
 Submitted by:
-Aditya Purandare
-Graduate Student, Mays Business School
-Texas A&M University
+Aditya Purandare, Graduate Student, Mays Business School, Texas A&M University
 
 Time spent: 30 hours spent in total
 
