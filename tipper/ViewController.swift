@@ -30,15 +30,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IconP2: UIImageView!
     @IBOutlet weak var IconP1: UIImageView!
     
+    var movedFlag = false
     let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         tipLabel.text = "$0.00"
         let tipValue = defaults.integerForKey("tipIndex")
         tipController.selectedSegmentIndex = tipValue
+
+        //Make Text field first responder
+        self.tipField.becomeFirstResponder()
         
         //Animate from alpha
         self.tipLabel.alpha = 0
@@ -60,6 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.IconP9.alpha = 0
         self.IconP10.alpha = 0
 
+
         //Persists the data across restarts
         if(defaults.objectForKey("lastlogin") == nil)
         {
@@ -70,22 +74,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         var timeInterval: Double = start!.timeIntervalSinceDate(end);
         timeInterval = timeInterval * -1.0;
-        
-        if(timeInterval > 750)
+
+        if(timeInterval > 600.0)
         {
-            //do something
-            defaults.setDouble(0.00, forKey: "billAmount")
+            defaults.setDouble(0, forKey: "billAmount")
             defaults.setInteger(0, forKey: "tipIndex")
         }
-        let billAmt = defaults.doubleForKey("billAmount")
-        if(billAmt != 0.00)
-        {
-            tipField.text = String(format: "$%.0f", billAmt)
-        }
-        else{
-            tipField.text = String("$")
-        }
-        
+
+        tipField.text = String(defaults.doubleForKey("billAmount"))
+        print(tipField.text)
+
         defaults.setObject(NSDate(), forKey: "lastlogin")
     }
 
@@ -93,34 +91,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        print("view will appear")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        print("view did appear")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("view will disappear")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("view did disappear")
-    }
     
     @IBAction func onEditingChanged(sender: AnyObject) {
         
+        print(tipField.text)
         var tipPercentages = [0.15, 0.18, 0.20, 0.25]
         let tipPercentage = tipPercentages[tipController.selectedSegmentIndex]
         
         let billAmount = NSString(string: tipField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
+        print(billAmount, tip, total)
         
         tipLabel.text = String(format: "$%.2f", tip)
         
@@ -135,13 +116,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
         P4label.text = String(format: "$%.2f", tipFor4)
 
         defaults.setDouble(billAmount, forKey: "billAmount")
+        
+        if(movedFlag == false)
+        {
+            animateViewMoving(true, moveValue: 100)
+            UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseOut, animations:
+                {
+                    self.tipLabel.alpha = 1
+                    self.billLabel.alpha = 1
+                    self.tipController.alpha = 1
+                    self.plusLabel.alpha = 1
+                    self.P1label.alpha = 1
+                    self.P2label.alpha = 1
+                    self.P3label.alpha = 1
+                    self.P4label.alpha = 1
+                    self.IconP1.alpha = 1
+                    self.IconP2.alpha = 1
+                    self.IconP3.alpha = 1
+                    self.IconP4.alpha = 1
+                    self.IconP5.alpha = 1
+                    self.IconP6.alpha = 1
+                    self.IconP7.alpha = 1
+                    self.IconP8.alpha = 1
+                    self.IconP9.alpha = 1
+                    self.IconP10.alpha = 1
+                    
+                },
+                completion:
+                {
+                    (finished:Bool) in
+                }
+            )
+            movedFlag = true
+        }
     }
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    /*func textFieldDidBeginEditing(textField: UITextField) {
         animateViewMoving(true, moveValue: 100)
         UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseOut, animations:
             {
@@ -172,9 +186,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         )
 
     }
+    */
     func textFieldDidEndEditing(textField: UITextField) {
         animateViewMoving(false, moveValue: 100)
-        if(tipField.text == "$")
+        if(tipField.text == "$" && movedFlag == true)
         {
             UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations:
                 {
@@ -202,6 +217,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     (finished:Bool) in
                 }
             )
+            movedFlag = false
         }
     }
     
