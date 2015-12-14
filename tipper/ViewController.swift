@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipField: UITextField!
     @IBOutlet weak var P1label: UILabel!
     @IBOutlet weak var P2label: UILabel!
@@ -27,11 +26,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tipLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
         
         let tipValue = defaults.integerForKey("tipIndex")
         //print(defaults.integerForKey("tipIndex"))
         tipController.selectedSegmentIndex = tipValue
+        
+        //Animate from alpha
+        self.tipLabel.alpha = 0
+        
         if(defaults.objectForKey("lastlogin") == nil)
         {
             defaults.setObject(NSDate(), forKey: "lastlogin")
@@ -86,12 +88,11 @@ class ViewController: UIViewController {
         let total = tip + billAmount
         
         tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
         
-        let tipFor1 = tip
-        let tipFor2 = tip/2
-        let tipFor3 = tip/3
-        let tipFor4 = tip/4
+        let tipFor1 = total
+        let tipFor2 = total/2
+        let tipFor3 = total/3
+        let tipFor4 = total/4
         
         P1label.text = String(format: "$%.2f", tipFor1)
         P2label.text = String(format: "$%.2f", tipFor2)
@@ -104,5 +105,27 @@ class ViewController: UIViewController {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
+    
+    /*@IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipField: UITextField!
+    @IBOutlet weak var P1label: UILabel!
+    @IBOutlet weak var P2label: UILabel!
+    @IBOutlet weak var P3label: UILabel!
+    @IBOutlet weak var P4label: UILabel!
+    @IBOutlet weak var tipController: UISegmentedControl!*/
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.4, delay: 0.1, options: .CurveEaseInOut, animations: {
+            self.tipField.frame.origin = CGPointMake(self.view.frame.size.width/2, (self.view.frame.size.width/2) - 20 )
+            self.tipLabel.alpha = 1
+  
+
+            
+            },
+            completion: {
+                (finished:Bool) in
+        })
+    }
+    
 }
 
