@@ -62,12 +62,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.IconP9.alpha = 0
         self.IconP10.alpha = 0
 
+        //Persists the data across restarts
         if(defaults.objectForKey("lastlogin") == nil)
         {
             defaults.setObject(NSDate(), forKey: "lastlogin")
         }
-
-        
         let start = defaults.objectForKey("lastlogin")
         let end = NSDate();
         
@@ -77,6 +76,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if(timeInterval > 750)
         {
             //do something
+            defaults.setDouble(0.00, forKey: "billAmount")
+            defaults.setInteger(0, forKey: "tipIndex")
+        }
+        let billAmt = defaults.doubleForKey("billAmount")
+        if(billAmt != 0.00)
+        {
+            tipField.text = String(format: "$ %.0f", billAmt)
+        }
+        else{
+            tipField.text = String("")
         }
         
         defaults.setObject(NSDate(), forKey: "lastlogin")
@@ -127,7 +136,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         P3label.text = String(format: "$%.2f", tipFor3)
         P4label.text = String(format: "$%.2f", tipFor4)
 
-
+        defaults.setDouble(billAmount, forKey: "billAmount")
     }
 
     @IBAction func onTap(sender: AnyObject) {
@@ -137,6 +146,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         UIView.animateWithDuration(0.4, delay: 0.1, options: .CurveEaseOut, animations: {
+            
             self.tipField.frame.offsetInPlace(dx: 0, dy: -50)
             self.billLabel.frame.offsetInPlace(dx: 0, dy: -50)
             self.tipLabel.frame.offsetInPlace(dx: 0, dy: -50)
