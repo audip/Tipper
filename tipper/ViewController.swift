@@ -37,9 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         tipLabel.text = "$0.00"
-        
         let tipValue = defaults.integerForKey("tipIndex")
-        //print(defaults.integerForKey("tipIndex"))
         tipController.selectedSegmentIndex = tipValue
         
         //Animate from alpha
@@ -82,10 +80,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let billAmt = defaults.doubleForKey("billAmount")
         if(billAmt != 0.00)
         {
-            tipField.text = String(format: "$ %.0f", billAmt)
+            tipField.text = String(format: "$%.0f", billAmt)
         }
         else{
-            tipField.text = String("")
+            tipField.text = String("$")
         }
         
         defaults.setObject(NSDate(), forKey: "lastlogin")
@@ -143,30 +141,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    
     func textFieldDidBeginEditing(textField: UITextField) {
-        UIView.animateWithDuration(0.4, delay: 0.1, options: .CurveEaseOut, animations: {
-            
-            self.tipField.frame.offsetInPlace(dx: 0, dy: -50)
-            self.billLabel.frame.offsetInPlace(dx: 0, dy: -50)
-            self.tipLabel.frame.offsetInPlace(dx: 0, dy: -50)
-            self.tipController.frame.offsetInPlace(dx: 0, dy: -50)
-            self.plusLabel.frame.offsetInPlace(dx: 0, dy: -50)
-            self.P1label.frame.offsetInPlace(dx: 0, dy: -50)
-            self.P2label.frame.offsetInPlace(dx: 0, dy: -50)
-            self.P3label.frame.offsetInPlace(dx: 0, dy: -50)
-            self.P4label.frame.offsetInPlace(dx: 0, dy: -50)
-            self.IconP1.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP2.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP3.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP4.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP5.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP6.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP7.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP8.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP9.frame.offsetInPlace(dx: 0, dy: -40)
-            self.IconP10.frame.offsetInPlace(dx: 0, dy: -40)
-            
+        animateViewMoving(true, moveValue: 100)
+        UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseOut, animations:
+            {
             self.tipLabel.alpha = 1
             self.billLabel.alpha = 1
             self.tipController.alpha = 1
@@ -187,9 +165,54 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.IconP10.alpha = 1
             
             },
-            completion: {
+            completion:
+            {
                 (finished:Bool) in
-        })
+            }
+        )
+
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        animateViewMoving(false, moveValue: 100)
+        if(tipField.text == "$")
+        {
+            UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations:
+                {
+                    self.tipLabel.alpha = 0
+                    self.billLabel.alpha = 0
+                    self.tipController.alpha = 0
+                    self.plusLabel.alpha = 0
+                    self.P1label.alpha = 0
+                    self.P2label.alpha = 0
+                    self.P3label.alpha = 0
+                    self.P4label.alpha = 0
+                    self.IconP1.alpha = 0
+                    self.IconP2.alpha = 0
+                    self.IconP3.alpha = 0
+                    self.IconP4.alpha = 0
+                    self.IconP5.alpha = 0
+                    self.IconP6.alpha = 0
+                    self.IconP7.alpha = 0
+                    self.IconP8.alpha = 0
+                    self.IconP9.alpha = 0
+                    self.IconP10.alpha = 0
+                },
+                completion:
+                {
+                    (finished:Bool) in
+                }
+            )
+        }
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:NSTimeInterval = 0.4
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.commitAnimations()
     }
     
 }
