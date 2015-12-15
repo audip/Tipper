@@ -35,8 +35,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         
+//        self.navigationItem.r
         tipLabel.text = "$0.00"
         let tipValue = defaults.integerForKey("tipIndex")
         tipController.selectedSegmentIndex = tipValue
