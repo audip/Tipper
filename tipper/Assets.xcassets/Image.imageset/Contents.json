@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Default-portrait@2x~iphone4.png",
+      "filename" : "Default-portrait@2x~iphone5.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Default-portrait@2x~iphone5.jpg",
+      "filename" : "Default-portrait@2x~iphone6.png",
       "scale" : "2x"
     },
     {
