@@ -23,12 +23,13 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Designed the app with the flat color scheme
+- [x] App Logo to match the design of app & launch screen
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/dZdFgsP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/upvOUf6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
