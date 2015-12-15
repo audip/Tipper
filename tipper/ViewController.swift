@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IconP1: UIImageView!
     
     var movedFlag = false
-    var topFlag = true
+    var topFlag = false
     let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
@@ -46,8 +46,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.translucent = true
         self.navigationController!.view.backgroundColor = UIColor.clearColor()
-        self.navigationController!.navigationItem.titleView?.tintColor = UIColor.whiteColor()
-        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
 
         //Make Text field first responder
         self.tipField.becomeFirstResponder()
@@ -70,7 +68,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.IconP8.alpha = 0
         self.IconP9.alpha = 0
         self.IconP10.alpha = 0
-
+        
+        topFlag = true
 
         //Persists the data across restarts
         if(defaults.objectForKey("lastlogin") == nil)
@@ -102,14 +101,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onEditingChanged(sender: AnyObject) {
         
-        print(tipField.text)
+        //print(tipField.text)
         var tipPercentages = [0.15, 0.18, 0.20, 0.25]
         let tipPercentage = tipPercentages[tipController.selectedSegmentIndex]
         
         let billAmount = NSString(string: tipField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
-        print(billAmount, tip, total)
+        //print(billAmount, tip, total)
         
         tipLabel.text = String(format: "$%.2f", tip)
         
@@ -124,6 +123,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         P4label.text = String(format: "$%.2f", tipFor4)
 
         defaults.setDouble(billAmount, forKey: "billAmount")
+        topFlag = true
         
         if(movedFlag == false)
         {
@@ -160,45 +160,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
-        topFlag = false
     }
     
-    /*func textFieldDidBeginEditing(textField: UITextField) {
-        animateViewMoving(true, moveValue: 100)
-        UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseOut, animations:
-            {
-            self.tipLabel.alpha = 1
-            self.billLabel.alpha = 1
-            self.tipController.alpha = 1
-            self.plusLabel.alpha = 1
-            self.P1label.alpha = 1
-            self.P2label.alpha = 1
-            self.P3label.alpha = 1
-            self.P4label.alpha = 1
-            self.IconP1.alpha = 1
-            self.IconP2.alpha = 1
-            self.IconP3.alpha = 1
-            self.IconP4.alpha = 1
-            self.IconP5.alpha = 1
-            self.IconP6.alpha = 1
-            self.IconP7.alpha = 1
-            self.IconP8.alpha = 1
-            self.IconP9.alpha = 1
-            self.IconP10.alpha = 1
-            
-            },
-            completion:
-            {
-                (finished:Bool) in
-            }
-        )
-
-    }
-    */
     func textFieldDidEndEditing(textField: UITextField) {
         if(topFlag == true)
         {
             animateViewMoving(false, moveValue: 100)
+            topFlag = false
         }
         if(tipField.text == "$" && movedFlag == true)
         {
