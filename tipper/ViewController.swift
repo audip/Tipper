@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IconP1: UIImageView!
     
     var movedFlag = false
+    var topFlag = true
     let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
@@ -39,13 +40,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tipLabel.text = "$0.00"
         let tipValue = defaults.integerForKey("tipIndex")
         tipController.selectedSegmentIndex = tipValue
+        
+        //Navigation Bar to Transparent
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.translucent = true
+        self.navigationController!.view.backgroundColor = UIColor.clearColor()
+        self.navigationController!.navigationItem.titleView?.tintColor = UIColor.whiteColor()
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
 
         //Make Text field first responder
         self.tipField.becomeFirstResponder()
         
         //Animate from alpha
         self.tipLabel.alpha = 0
-        self.billLabel.alpha = 0
         self.plusLabel.alpha = 0
         self.tipController.alpha = 0
         self.P1label.alpha = 0
@@ -123,7 +131,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseOut, animations:
                 {
                     self.tipLabel.alpha = 1
-                    self.billLabel.alpha = 1
                     self.tipController.alpha = 1
                     self.plusLabel.alpha = 1
                     self.P1label.alpha = 1
@@ -153,6 +160,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+        topFlag = false
     }
     
     /*func textFieldDidBeginEditing(textField: UITextField) {
@@ -188,13 +196,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     */
     func textFieldDidEndEditing(textField: UITextField) {
-        animateViewMoving(false, moveValue: 100)
+        if(topFlag == true)
+        {
+            animateViewMoving(false, moveValue: 100)
+        }
         if(tipField.text == "$" && movedFlag == true)
         {
             UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations:
                 {
                     self.tipLabel.alpha = 0
-                    self.billLabel.alpha = 0
                     self.tipController.alpha = 0
                     self.plusLabel.alpha = 0
                     self.P1label.alpha = 0
@@ -223,11 +233,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
         let movementDuration:NSTimeInterval = 0.4
-        let movement:CGFloat = ( up ? -moveValue : moveValue)
-        UIView.beginAnimations( "animateView", context: nil)
+        let movement:CGFloat = (up ? -moveValue : moveValue)
+        UIView.beginAnimations("animateView", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(movementDuration)
-        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         UIView.commitAnimations()
     }
     
