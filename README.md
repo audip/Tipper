@@ -1,5 +1,7 @@
 # Pre-work - Tipper
 
+<img src="https://github.com/audip/tipper/blob/master/iTunesArtwork%402x.png" width="150" height="150" alt="Tipper App Icon" />
+
 Tipper is a tip calculator application for iOS.
 
 Submitted by:
